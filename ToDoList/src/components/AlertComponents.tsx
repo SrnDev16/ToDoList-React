@@ -22,7 +22,7 @@ const AlertComponents = ({ alert, data, setAlert }: alertProps) => {
     <Box
       display={alert.show ? "block" : "none"}
       sx={{
-        bgcolor: `${alert.color}`,
+        bgcolor:`${alert.color}`,
         padding: "4px 8px",
         mb: 2,
         width: "60%",
@@ -32,7 +32,6 @@ const AlertComponents = ({ alert, data, setAlert }: alertProps) => {
     >
       <Typography variant="body1">{alert.smg}</Typography>
     </Box>
-    // <div>{alert.smg}</div>
   );
 };
 

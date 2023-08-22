@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Container,
   Stack,
   TextField,
   Typography,
@@ -11,6 +10,7 @@ import RenderLists from "./RenderLists";
 import { v4 as uuidv4 } from "uuid";
 import AlertComponents from "./AlertComponents";
 import TestComponent from "./TestComponent";
+import "./Styles.css"
 
 const FormTodo = () => {
   const [todo, setTodo] = useState<string>("");
@@ -34,7 +34,7 @@ const FormTodo = () => {
       setTodo("");
       setCheckEdit(false);
       setEditId("");
-      setAlert({ show: true, smg: "บันทึกข้อมูลเรียบร้อย", color: "#DFFF00" });
+      setAlert({ show: true, smg: "บันทึกข้อมูลเรียบร้อย", color: "orange" });
     } else {
       const newList = {
         id: uuidv4(),
@@ -42,14 +42,14 @@ const FormTodo = () => {
       };
       setLists([...list, newList]);
       setTodo("");
-      setAlert({ show: true, smg: "บันทึกข้อมูลเรียบร้อย", color: "#AAFF00" });
+      setAlert({ show: true, smg: "บันทึกข้อมูลเรียบร้อย", color: "orange" });
     }
   };
 
   const removeItem = (id: string) => {
     const newLists = list.filter((item) => item.id !== id);
     setLists(newLists);
-    setAlert({ show: true, smg: "ลบข้อมูลเรียบร้อย", color: "green" });
+    setAlert({ show: true, smg: "ลบข้อมูลเรียบร้อย", color: "orange" });
   };
 
   const editItem = (id: string) => {
@@ -60,28 +60,26 @@ const FormTodo = () => {
   };
 
   return (
-    <Container maxWidth="lg">
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "start",
-          bgcolor: "#F9F9F9",
           height: "100vh",
-          p: 4,
         }}
+        className="container"
       >
         <Box
           sx={{
             p: 4,
-            borderRadius: 1,
+            boxShadow: 5,
             width: "500px",
-            boxShadow: 1,
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
           }}
+          className="todo-container"
         >
           <TestComponent alert={alert} />
           <Typography variant="h3" sx={{ mb: 2 }}>
@@ -103,7 +101,7 @@ const FormTodo = () => {
                   setTodo(e.target.value);
                 }}
                 value={todo}
-                sx={{width: 350}}
+                sx={{width: 350, bgcolor:"white"}}
               />
               <Button
                 variant="contained"
@@ -117,7 +115,6 @@ const FormTodo = () => {
           <RenderLists data={list} onDelete={removeItem} onEdit={editItem} />
         </Box>
       </Box>
-    </Container>
   );
 };
 
