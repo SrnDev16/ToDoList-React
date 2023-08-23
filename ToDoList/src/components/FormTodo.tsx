@@ -9,7 +9,6 @@ import { useState } from "react";
 import RenderLists from "./RenderLists";
 import { v4 as uuidv4 } from "uuid";
 import AlertComponents from "./AlertComponents";
-import TestComponent from "./TestComponent";
 import "./Styles.css"
 
 const FormTodo = () => {
@@ -78,10 +77,10 @@ const FormTodo = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            borderRadius: 3,
           }}
           className="todo-container"
         >
-          <TestComponent alert={alert} />
           <Typography variant="h3" sx={{ mb: 2 }}>
             รายการที่ต้องทำ
           </Typography>
