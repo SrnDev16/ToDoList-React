@@ -6,3 +6,17 @@
     color: grey;
     margin: 4rem auto;
 }
+
+@media  screen and (max-width: 850px){
+    .todo-container{
+        width: 100% !important;
+    }
+    .form{
+        flex-direction: column !important;
+    }
+    .form button {
+        margin-top: 10px !important ;
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
